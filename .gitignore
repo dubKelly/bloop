@@ -58,5 +58,8 @@ docs/_build/
 # PyBuilder
 target/
 
+# flake8
+tox.ini
+
 local
 venv
