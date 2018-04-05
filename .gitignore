@@ -61,5 +61,8 @@ target/
 # flake8
 tox.ini
 
+# ???
+.DS_Store
+
 local
 venv
