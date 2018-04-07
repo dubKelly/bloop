@@ -5,12 +5,20 @@ import openpyxl
 import os
 import sys
 
+
 def scrape(path):
-  for filename in os.listdir(path[0]):
-    location = f'{path[0]}/{filename}'
-    with open(location, 'r') as dump:
+  try:
+    for filename in os.listdir(path[0]):
+      location = f'{path[0]}/{filename}'
+
+      with open(location, 'r') as dump:
+        text = dump.read()
+        print(text)
+  except NotADirectoryError:
+    with open(path[0], 'r') as dump:
       text = dump.read()
       print(text)
+
 
 def main(args):
   parser = ArgumentParser(
@@ -26,6 +34,7 @@ def main(args):
 
   args = parser.parse_args()
   scrape(args.filepath)
+
 
 def run():
   sys.exit(main(sys.argv[1:]))
